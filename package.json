@@ -7,7 +7,7 @@
   "repository": "mahaker/coordinatron",
   "author": {
     "name": "mahaker",
-    "email": "hideaki.matsunami@esm.co.jp",
+    "email": "hideaki.matsunami@esm.co.jp"
   },
   "scripts": {
     "test": "xo",
