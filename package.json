@@ -32,6 +32,7 @@
     "electron-packager": "^8.0.0",
     "gulp": "^3.9.1",
     "mithril": "^1.0.0",
+    "spectron": "^3.6.0",
     "xo": "^0.16.0"
   },
   "xo": {
