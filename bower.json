@@ -1,0 +1,14 @@
+{
+  "name": "coordinatron",
+  "description": "My superb app",
+  "main": "index.js",
+  "authors": [
+    "[object Object]"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "electron-app",
+    "electron"
+  ],
+  "homepage": "https://github.com/Tashiteku/coordinatron"
+}
