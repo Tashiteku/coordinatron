@@ -3,6 +3,8 @@ const electron = require('electron');
 
 const app = electron.app;
 
+const {ipcMain} = require('electron')
+
 // adds debug features like hotkeys for triggering dev tools and reload
 require('electron-debug')();
 
@@ -17,11 +19,12 @@ function onClosed() {
 
 function createMainWindow() {
 	const win = new electron.BrowserWindow({
-		width: 600,
-		height: 400
+		width: 800,
+		height: 600,
+		frame: true
 	});
 
-	win.loadURL(`file://${__dirname}/index.html`);
+	win.loadURL(`file://${__dirname}/app/login/login.html`);
 	win.on('closed', onClosed);
 
 	return win;
@@ -36,9 +39,17 @@ app.on('window-all-closed', () => {
 app.on('activate', () => {
 	if (!mainWindow) {
 		mainWindow = createMainWindow();
+		mainWindow.webContents.openDevTools();
 	}
 });
 
 app.on('ready', () => {
 	mainWindow = createMainWindow();
 });
+
+ipcMain.on('asynchronous-message', (event, arg) => {
+  //console.log(arg)  // prints "ping"
+  //event.sender.send('asynchronous-reply', 'pong')
+	console.log('userName = ' + arg['userName']);
+	console.log('password = ' + arg['password']);
+})

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css"/>
+  <link rel="stylesheet" href="login.css"/>
+  <title>Coordinatron Login</title>
+
+  <script>
+    function googleOAuth() {
+      const {ipcRenderer} = require('electron')
+
+      var userName = document.getElementById('login-username').value;
+      var password = document.getElementById('login-password').value;
+
+      var userInfo = {userName: userName,
+                      password: password
+                      };
+
+      /*
+      ipcRenderer.on('asynchronous-reply', (event, arg) => {
+        //console.log(arg); // prints "pong"
+        userName.value = arg;
+      });
+      */
+      ipcRenderer.send('asynchronous-message', userInfo);
+    }
+  </script>
+
+</head>
+<body>
+  <div class="layer-image">
+    <div class="layer-color" id="layer-height">
+      <div class="container">
+        <form class="form-inline form-position">
+          <div class="form-group row">
+            <span class="col-md-4 col-md-offset-4">
+              <label for="login-username">User Name</label>
+            </span>
+            <span class="col-md-4">
+              <input type="text" class="form-control userInfo" id="login-username" placeholder="User Name" maxlength="20">
+            </span>
+          </div>
+          <div class="col-md-12"></div>
+          <div class="form-group userInfo-password row">
+            <span class="col-md-4 col-md-offset-4">
+              <label for="login-password">Password</label>
+            </span>
+            <span class="col-md-4">
+              <input type="password" class="form-control userInfo" id="login-password" placeholder="Password" maxlength="10">
+            </span>
+          </div>
+          <div>
+            <button type="button" class="btn btn-primary loginBtn" onclick="googleOAuth()">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>

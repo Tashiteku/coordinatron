@@ -1,0 +1,10 @@
+<message>
+  <login>
+    <title>Coordinatron Login</title>
+    <userInfo>
+      <name>UserName</name>
+      <password>Password</password>
+      <submit>Login</submit>
+    </userInfo>
+  </login>
+</message>

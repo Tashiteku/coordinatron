@@ -1,0 +1,34 @@
+/*
+.base-color {
+  background-color: gray;
+}
+*/
+
+.layer-image {
+  background-image: url(../resources/coordinatron.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 535px;
+}
+
+.layer-color {
+  background-color: rgba(150, 150, 150, 0.6);
+  height: 535px;
+}
+
+.userInfo {
+  width: 30px;
+}
+
+.form-position {
+  position: relative;
+  top: 170px;
+}
+
+.loginBtn {
+  margin-top: 20px;
+}
+
+label {
+  color: white;
+}
