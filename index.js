@@ -1,9 +1,8 @@
 'use strict';
 const electron = require('electron');
+var login = require('./app/login/login.js');
 
 const app = electron.app;
-
-const {ipcMain} = require('electron')
 
 // adds debug features like hotkeys for triggering dev tools and reload
 require('electron-debug')();
@@ -41,15 +40,20 @@ app.on('activate', () => {
 		mainWindow = createMainWindow();
 		mainWindow.webContents.openDevTools();
 	}
+
 });
 
 app.on('ready', () => {
 	mainWindow = createMainWindow();
 });
 
+const {ipcMain} = require('electron')
+
 ipcMain.on('asynchronous-message', (event, arg) => {
   //console.log(arg)  // prints "ping"
   //event.sender.send('asynchronous-reply', 'pong')
-	console.log('userName = ' + arg['userName']);
-	console.log('password = ' + arg['password']);
-})
+  //console.log('userName = ' + arg['userName']);
+  //console.log('password = ' + arg['password']);
+
+	login.OAuth(arg);
+});
