@@ -40,7 +40,9 @@ app.on('activate', () => {
 		mainWindow = createMainWindow();
 		mainWindow.webContents.openDevTools();
 	}
-
+	/*
+	login.OAuth();
+	*/
 });
 
 app.on('ready', () => {
@@ -49,7 +51,7 @@ app.on('ready', () => {
 
 const {ipcMain} = require('electron')
 
-ipcMain.on('asynchronous-message', (event, arg) => {
+ipcMain.on('asynchronous-userInfo', (event, arg) => {
   //console.log(arg)  // prints "ping"
   //event.sender.send('asynchronous-reply', 'pong')
   //console.log('userName = ' + arg['userName']);
